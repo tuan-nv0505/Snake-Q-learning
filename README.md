@@ -10,7 +10,7 @@ It’s worth noting that Q-learning has an improved variant called Deep Q-Learni
 
 In this project, I focused only on the basic Q-learning algorithm. You can check out my Snake game with DQL implementation on my GitHub ([Snake Deep Q-learning](https://github.com/tuan-nv0505/Snake-double-deep-Q-learning)) to see the performance difference.
 
-<p align="left">
+<p align="left" >
   <img src="demo/video_demo.gif" width="200">
   <i>Result</i>
 </p>
