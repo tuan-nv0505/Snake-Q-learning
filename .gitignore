@@ -1,0 +1,47 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtual environment
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+
+# File log
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.swp
+.DS_Store
+
+# === PyCharm / JetBrains IDE ===
+.idea/
+*.iml
+out/
+
+
+# === VSCode ===
+.vscode/
+
+# === Data / model / temp files ===
+*.h5
+*.ckpt
+*.pt
+*.pth
+*.pkl
+*.joblib
+*.npz
+*.npy
+checkpoint/
+
+# === OS-specific ===
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
