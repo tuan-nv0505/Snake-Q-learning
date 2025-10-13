@@ -16,7 +16,7 @@ In this project, I focused only on the basic Q-learning algorithm. You can check
     <img src="demo/video_3.gif" width="400">
     <img src="demo/video_4.gif" width="400">
     <img src="demo/video_5.gif" width="400">
-  <i>Result</i>
+    <i>Result</i>
 </p>
 
 ## How to use my code
