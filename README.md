@@ -1,4 +1,4 @@
-# Q-learning for playing Snake game
+# [A] Q-learning for playing Snake game
 
 ## Introduction
 
