@@ -11,21 +11,10 @@ from agent.q_learning import QLearning
 from environment.Food import Food
 from environment.Snake import Snake
 from utils.config import CELL_SIZE, get_action, WIDTH, HEIGHT
-from train import free_space
 
 epsilon = 0
 learning_rate = 0.2
 discount_factor = 0.9
-
-def load_file(model):
-    q_table_test = "checkpoint/q_table_train.pkl"
-    if os.path.exists(q_table_test):
-        with open(q_table_test, "rb") as f:
-            model.q_table = pickle.load(f)
-        print("load file successfully.")
-    else:
-        print("load file failed.")
-
 
 class Game:
     __flag = True
@@ -98,8 +87,15 @@ class Game:
 
 
 if __name__ == "__main__":
-    model = QLearning(3, learning_rate, discount_factor)
-    load_file(model)
+    agent = QLearning(3, learning_rate, discount_factor)
+    q_table = "checkpoint/q_table.pkl"
+    if os.path.exists(q_table):
+        with open(q_table, "rb") as f:
+            agent.q_table = pickle.load(f)
+        print("load file successfully.")
+    else:
+        print("load file failed.")
+
     while True:
-        game = Game(WIDTH, HEIGHT, (0, 0, 0), 30, model)
+        game = Game(WIDTH, HEIGHT, (0, 0, 0), 50, agent)
         game.game_update()

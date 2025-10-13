@@ -12,11 +12,11 @@ from environment.Snake import Snake
 from utils.config import get_action, manhattan, CELL_SIZE, WIDTH, HEIGHT
 from collections import deque
 
-learning_rate = 1
+learning_rate = 0.06
 min_learning_rate = 0.05
 discount_factor = 0.9
 episodes = 300000
-epsilon = 0.01
+epsilon = 1
 epsilon_min = 0.01
 epsilon_decay = 0.9995
 list_score = []
@@ -134,14 +134,14 @@ def loop(snake, food, model, epsilon):
 
 
 def main():
-    q_table_train = "checkpoint/q_table_train.pkl"
+    q_table_train = "checkpoint/q_table.pkl"
     os.makedirs("checkpoint", exist_ok=True)
-    model = QLearning(3, learning_rate, discount_factor)
+    agent = QLearning(3, learning_rate, discount_factor)
 
     # Load file
     if os.path.exists(q_table_train):
         with open(q_table_train, "rb") as f:
-            model.q_table = pickle.load(f)
+            agent.q_table = pickle.load(f)
         print("load file successfully.")
     else:
         print("load file failed.")
@@ -151,25 +151,23 @@ def main():
         # Train
         snake = Snake()
         food = Food()
-        loop(snake, food, model, epsilon)
+        loop(snake, food, agent, epsilon)
         epsilon = max(epsilon_min, epsilon * epsilon_decay)
-        model.learning_rate = min_learning_rate + (learning_rate - min_learning_rate) * epsilon
+        agent.learning_rate = min_learning_rate + (learning_rate - min_learning_rate) * epsilon
 
         # Print log
         if episode % 100 == 0:
             with open(q_table_train, "wb") as f:
-                pickle.dump(model.q_table, f)
+                pickle.dump(agent.q_table, f)
 
             print(
                 "Episode [{}][{}] | Epsilon: {:.3f} Learning rate: {:.3f} | Max score: {} Average score: {:.3f} | "
                 "Max step: {} Average step: {:.3f} | Max reward: {} Average reward: {:.3f}".
                 format(
-                    episode, episodes, epsilon, model.learning_rate, max(list_score), np.mean(np.array(list_score)),
+                    episode, episodes, epsilon, agent.learning_rate, max(list_score), np.mean(np.array(list_score)),
                     max(list_step), np.mean(np.array(list_step)), max(list_reward), np.mean(np.array(list_reward))
                 )
             )
-            exp_state = len(model.q_table)
-            print("EXPLORE THE MAP: {}/{} | {:.2f}%".format(exp_state, 1024, exp_state*100/1024))
             list_score.clear()
             list_step.clear()
             list_reward.clear()
