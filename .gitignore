@@ -38,6 +38,7 @@ out/
 *.joblib
 *.npz
 *.npy
+checkpoint/
 
 # === OS-specific ===
 Thumbs.db
