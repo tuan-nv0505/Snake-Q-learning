@@ -6,9 +6,7 @@ Here is my Python source code for training an agent to play Snake using the Q-le
 
 Talking about performance, my agent achieved a score of 70, which is much better than what I initially expected from a basic Q-learning approach.
 
-It’s worth noting that Q-learning has an improved variant called Deep Q-Learning (DQN), which uses a Neural Network to approximate the Q-function and typically achieves much better results.
-
-In this project, I focused only on the basic Q-learning algorithm. You can check out my Snake game with DQL implementation on my GitHub ([Snake Deep Q-learning](https://github.com/tuan-nv0505/Snake-double-deep-Q-learning)) to see the performance difference.
+In this project, I focused only on the Q-learning algorithm. You can check out my Snake game with DQL implementation on my GitHub ([Snake Deep Q-learning](https://github.com/tuan-nv0505/Snake-double-deep-Q-learning)).
 
 <p align="left" >
     <img src="demo/video_demo.gif" width="800">
