@@ -8,6 +8,8 @@ Talking about performance, my agent achieved a score of 70, which is much better
 
 In this project, I focused only on the Q-learning algorithm. You can check out my Snake game with DQL implementation on my GitHub ([Snake Deep Q-learning](https://github.com/tuan-nv0505/Snake-double-deep-Q-learning)).
 
+⭐ If you find this project interesting or helpful, please consider giving it a star on GitHub — it really motivates me to keep improving and sharing more AI projects!
+
 <p align="left" >
     <img src="demo/demo.gif">
     <i>Result</i>
