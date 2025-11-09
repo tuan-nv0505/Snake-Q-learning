@@ -6,10 +6,9 @@ sys.path.append(str(ROOT_DIR))
 import pickle
 import numpy as np
 import os
-from agent.q_learning import QLearning
-from environment.Food import Food
-from environment.Snake import Snake
-from utils.config import get_action, manhattan, CELL_SIZE, WIDTH, HEIGHT
+from src.q import Q
+from src.environment import Food, Snake
+from src.config import get_action, manhattan, CELL_SIZE, WIDTH, HEIGHT
 from collections import deque
 
 learning_rate = 0.06
@@ -136,7 +135,7 @@ def loop(snake, food, model, epsilon):
 def main():
     q_table_train = "checkpoint/q_table.pkl"
     os.makedirs("checkpoint", exist_ok=True)
-    agent = QLearning(3, learning_rate, discount_factor)
+    agent = Q(3, learning_rate, discount_factor)
 
     # Load file
     if os.path.exists(q_table_train):

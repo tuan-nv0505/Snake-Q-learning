@@ -6,7 +6,7 @@ import numpy as np
 def default_q(number_action):
     return np.zeros(number_action)
 
-class QLearning:
+class Q:
 
     def __init__(self, number_action, learning_rate, discount_factor):
         self.learning_rate = learning_rate

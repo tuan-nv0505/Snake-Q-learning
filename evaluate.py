@@ -7,10 +7,9 @@ import os
 import pickle
 import numpy as np
 import pygame
-from agent.q_learning import QLearning
-from environment.Food import Food
-from environment.Snake import Snake
-from utils.config import CELL_SIZE, get_action, WIDTH, HEIGHT
+from src.q import Q
+from src.environment import Food, Snake
+from src.config import CELL_SIZE, get_action, WIDTH, HEIGHT
 
 epsilon = 0
 learning_rate = 0.2
@@ -87,7 +86,7 @@ class Game:
 
 
 if __name__ == "__main__":
-    agent = QLearning(3, learning_rate, discount_factor)
+    agent = Q(3, learning_rate, discount_factor)
     q_table = "checkpoint/q_table.pkl"
     if os.path.exists(q_table):
         with open(q_table, "rb") as f:
